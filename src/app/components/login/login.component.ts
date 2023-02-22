@@ -7,13 +7,15 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  username !: string;
+  password !: string;
 
   constructor(private authService: AuthService) {}
 
   login(){
     const credentials = {
-      username: '',
-      password: ''
+      username: this.username,
+      password: this.password
     }
 
     this.authService.loginService(credentials)
@@ -22,5 +24,8 @@ export class LoginComponent {
     })
   }
 
+  ngOnInit(): void {
+    //this.login();
+  }
 
 }

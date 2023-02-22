@@ -1,12 +1,56 @@
-.toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
+#bg{
+  background: #CECECE;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 35px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.btn-default{
+  border: 1px solid #000AFF;
+  color: #000AFF;
+}
+
+#IFRS{
+  font-weight: 700;
+  font-size: 35px;
+  color: #000AFF;
+}
+
+#IFRS2{
+  font-weight: 700;
+  font-size: 55px;
+  line-height: 82px;
+}
+
+h3{
+  font-weight: 400;
+  font-size: 25px;
+}
+
+p{
+  color: #8E5C00;
+}
+
+mat-card{
+  border-radius: 10px;
+  background: #FFFFFF;
+  padding: 30px;
+  width: 600px;
+  height: 400px;
+}
+
+mat-card mat-card-title{
+  font-weight: 700;
+  font-size: 30px;
+}
+
+label{
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 19px;
+}

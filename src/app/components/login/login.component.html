@@ -1,5 +1,50 @@
-<div class="toolbar" role="banner">
-    <p>login works!</p>
+<div class="container" id="bg">
+    <div class="container">
+        <h1 id="IFRS">
+        <img src="assets/IconResource/icon-park-solid_people-safepeople safe.svg" alt="My Icon">
+            IFRS</h1>
+    </div>
+
+    <div class="container my-5 d-flex">
+        <div class="container">
+            <h1 id="IFRS2">Integrated Facial Recognition System</h1>
+            <h3 class="my-5">For forensic Investigations</h3>
+            <button class="btn btn-default">Learn More</button>
+        </div>
+
+        <div class="container d-flex">
+            <mat-card>
+                <mat-card-title class="mx-3">Log In</mat-card-title>
+                <mat-card-content>
+                    <p class="my-3"><i class="fa fa-info-circle" aria-hidden="true"></i>   All fields are required</p>
+                    
+                    <form ngNativeValidate (submit)="login()">
+                        <div class="form-group my-3">
+                            <label>User Name:</label>
+                            <input type="text" class="form-control" [(ngModel)]="username" name="username" required="true">
+                        </div>
+                        
+                        <div class="form-group my-3">
+                            <label>Password:</label>
+                            <input type="password" class="form-control" [(ngModel)]="password" name="password" required="true">
+                        </div>
+
+                        <input type="submit" class="btn btn-primary my-4 w-25" value="Log In" style="background-color: #000AFF;">
+    
+                    </form>
+            
+                </mat-card-content>
+             
+            </mat-card>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <i class="fa fa-github fa-2x m-4" aria-hidden="true"></i>
+        <i class="fa fa-whatsapp fa-2x m-4" aria-hidden="true"></i>
+        <i class="fa fa-facebook-official fa-2x m-4" aria-hidden="true"></i>
+        <i class="fa fa-twitter fa-2x m-4" aria-hidden="true"></i>
+    </div>
+    
 </div>
-
-
