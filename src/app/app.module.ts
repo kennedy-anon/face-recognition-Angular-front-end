@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { SearchFaceComponent } from './components/search-face/search-face.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
     LoginComponent,
     AdminHomeComponent,
     SearchFaceComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
