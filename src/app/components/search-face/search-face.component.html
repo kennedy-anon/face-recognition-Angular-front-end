@@ -12,6 +12,25 @@
 
         <!-- Search Body -->
         <div class="container" id="bodySection">
+            <h4>Search Face</h4>
+
+            <div class="d-flex">
+                <!-- Face image been uploaded -->
+                <div>
+                    <mat-card *ngIf="selectedImage">
+                        <img id="faceImg" mat-card-image src="{{ selectedImage.src }}" alt="Face Image">
+                    </mat-card>
+
+                    <input type="file" accept="image/*" (change)="onFileSelected($event)" required="true"/>
+                </div>
+                
+                <!-- Preview of face image results -->
+                <div>
+                    <mat-card>
+
+                    </mat-card>
+                </div>
+            </div>
 
         </div>
     </div>
