@@ -1,0 +1,14 @@
+h4{
+    margin: 3rem 0 1rem 0;
+    font-weight: 400;
+}
+
+#IFRS{
+    font-weight: 700;
+    font-size: 35px;
+    color: #000AFF;
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+}

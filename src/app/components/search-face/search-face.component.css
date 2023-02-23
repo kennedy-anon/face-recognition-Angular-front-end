@@ -25,3 +25,11 @@
 .material-symbols-outlined{
     vertical-align: middle;
 }
+
+#mainContent{
+    width: 80%;
+}
+
+#bodySection{
+    padding-top: 20px;
+}

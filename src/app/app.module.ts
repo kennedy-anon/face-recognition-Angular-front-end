@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { SearchFaceComponent } from './components/search-face/search-face.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SearchFaceComponent } from './components/search-face/search-face.compon
     AppComponent,
     LoginComponent,
     AdminHomeComponent,
-    SearchFaceComponent
+    SearchFaceComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
