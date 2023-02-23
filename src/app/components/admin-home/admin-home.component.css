@@ -13,11 +13,6 @@
     padding-left: 70px;
 }
 
-#navigationPanel h4{
-    margin: 3rem 0 1rem 0;
-    font-weight: 400;
-}
-
 #mainContent{
     width: 80%;
 }
@@ -38,16 +33,6 @@
 
 .border-end, .border-bottom {
     border-color: black !important;
-}
-
-#IFRS{
-    font-weight: 700;
-    font-size: 35px;
-    color: #000AFF;
-}
-
-.material-symbols-outlined{
-    vertical-align: middle;
 }
 
 mat-card img{
