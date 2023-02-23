@@ -1,0 +1,27 @@
+#bg{
+    background: #CECECE;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#navigationPanel{
+    width: 20%;
+    padding-top: 35px;
+    padding-left: 70px;
+}
+
+.border-end, .border-bottom {
+    border-color: black !important;
+}
+
+#topBar{
+    padding-top: 25px;
+    text-align: right;
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+}
