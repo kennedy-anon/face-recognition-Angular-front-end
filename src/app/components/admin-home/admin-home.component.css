@@ -1,0 +1,61 @@
+#bg{
+    background: #CECECE;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#navigationPanel{
+    width: 20%;
+    padding-top: 35px;
+    padding-left: 70px;
+}
+
+#navigationPanel h4{
+    margin: 3rem 0 1rem 0;
+    font-weight: 400;
+}
+
+#mainContent{
+    width: 80%;
+}
+
+#topBar{
+    padding-top: 25px;
+    text-align: right;
+}
+
+#bodySection{
+    padding-top: 20px;
+}
+
+#bodySection h4{
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.border-end, .border-bottom {
+    border-color: black !important;
+}
+
+#IFRS{
+    font-weight: 700;
+    font-size: 35px;
+    color: #000AFF;
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+}
+
+mat-card img{
+    width: 385px;
+    height: 186px;
+}
+
+mat-card button{
+    height: 5rem;
+    border-radius: 0px;
+}
