@@ -11,6 +11,8 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
 import { SearchFaceComponent } from './components/search-face/search-face.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { TrainModelComponent } from './components/train-model/train-model.component';
+import { FaceSearchLogsComponent } from './components/face-search-logs/face-search-logs.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
     AdminHomeComponent,
     SearchFaceComponent,
     NavigationBarComponent,
-    TopBarComponent
+    TopBarComponent,
+    TrainModelComponent,
+    FaceSearchLogsComponent
   ],
   imports: [
     BrowserModule,
