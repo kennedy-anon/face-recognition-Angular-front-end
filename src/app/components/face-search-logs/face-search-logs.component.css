@@ -29,3 +29,12 @@
 #bodySection{
     padding-top: 20px;
 }
+
+#bodySection h4{
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.bg-white{
+    overflow-y: auto;
+}
