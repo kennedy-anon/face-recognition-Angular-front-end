@@ -12,6 +12,33 @@
 
         <!-- Train Model Body -->
         <div class="container" id="bodySection">
+            <h4>Train Model</h4>
+
+            <mat-card class="w-50" id="header">
+                <p>Select the face images for training.</p>
+                <input type="file" accept="image/*" multiple class="" (change)="onFileSelected($event)" required="true"/>
+            </mat-card>
+
+
+            <h4 class="mt-3">Preview of first 3 face images</h4>
+
+            <div class="row">
+                <ng-container *ngFor="let image of selectedImages">
+                    <div class="col-md-2 mx-3">
+                        <mat-card class="">
+                            <img id="faceImg" mat-card-image src="{{ image.src }}" alt="Face Image">
+                        </mat-card>
+    
+                        <h5>{{ image.file.name }}</h5>
+                    </div>
+                </ng-container>  
+            </div>
+
+            <button class="btn btn-success w-25" style="background-color: #000AFF;">Train Model</button>
+
+            <div>
+                <p class="mt-3" style="color: green;">Model trained successfully.</p>
+            </div>
 
         </div>
     </div>
