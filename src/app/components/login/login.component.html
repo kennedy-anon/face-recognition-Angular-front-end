@@ -29,6 +29,10 @@
                             <input type="password" class="form-control" [(ngModel)]="password" name="password" required="true">
                         </div>
 
+                        <div>
+                            <p [ngStyle]="{'color': resMessageColor}">{{resMessage}}</p>
+                        </div>
+
                         <input type="submit" class="btn btn-primary my-4 w-25" value="Log In" style="background-color: #000AFF;">
     
                     </form>

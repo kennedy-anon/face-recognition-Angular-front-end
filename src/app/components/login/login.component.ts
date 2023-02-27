@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent {
   username !: string;
   password !: string;
+  resMessage !: string;
+  resMessageColor : string = 'red';
 
   constructor(private authService: AuthService) {}
 
@@ -19,13 +21,18 @@ export class LoginComponent {
     }
 
     this.authService.loginService(credentials)
-    .subscribe(res => {
-      console.log(res)
+    .subscribe({
+      next: (res =>{
+        this.resMessageColor = 'green';
+        this.resMessage = res;
+      }),
+      error: (err =>{
+        this.resMessage = err;
+      })
     })
   }
 
   ngOnInit(): void {
-    //this.login();
   }
 
 }
