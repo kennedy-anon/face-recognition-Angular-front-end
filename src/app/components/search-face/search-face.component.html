@@ -11,7 +11,7 @@
         </div>
 
         <!-- Search Body -->
-        <div class="container" id="bodySection">
+        <div class="container px-5" id="bodySection">
             <h4>Search Face</h4>
 
             <div class="d-flex">
@@ -21,15 +21,34 @@
                         <img id="faceImg" mat-card-image src="{{ selectedImage.src }}" alt="Face Image">
                     </mat-card>
 
-                    <input type="file" accept="image/*" (change)="onFileSelected($event)" required="true"/>
+                    <mat-card *ngIf="!selectedImage" class="no-image">
+                        <p>Face Image Preview</p>
+                    </mat-card>
+
+                    <input type="file" accept="image/*" class="mt-3" (change)="onFileSelected($event)" required="true"/>
+                    <button class="btn btn-success" style="background-color: #000AFF;">Search Image</button>
                 </div>
                 
                 <!-- Preview of face image results -->
                 <div>
-                    <mat-card>
-
+                    <mat-card *ngIf="selectedImage" style="margin-left: 6rem;">
+                        <!-- Change this to receive the face image -->
+                        <img id="faceImg" mat-card-image src="{{ selectedImage.src }}" alt="Face Image">
                     </mat-card>
+
+                    <mat-card *ngIf="!selectedImage" style="margin-left: 6rem;" class="no-image">
+                        <p>Searched Image View</p>
+                    </mat-card>
+                    
+                    <p class="mt-3" style="margin-left: 6rem;">Search Results Image</p>
+
                 </div>
+            </div>
+
+            <div>
+                <h4 class="mt-5">Search Results</h4>
+
+                <h3>Face Name: Kennedy</h3>
             </div>
 
         </div>

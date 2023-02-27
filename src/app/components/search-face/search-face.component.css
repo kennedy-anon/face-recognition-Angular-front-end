@@ -29,3 +29,26 @@
 #bodySection{
     padding-top: 20px;
 }
+
+#bodySection mat-card{
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+#bodySection mat-card img{
+    max-width: 400px;
+}
+
+#bodySection mat-card p{
+    margin: auto;
+}
+
+.no-image{
+    width: 400px;
+    height: 220px;
+}
+
+#bodySection h4{
+    font-weight: 400;
+    font-size: 25px;
+}
