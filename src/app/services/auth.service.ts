@@ -39,6 +39,9 @@ export class AuthService {
           errorMessage = 'Server down! Contact SysAdmin.';
           //errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
           break;
+        case 401:
+          errorMessage = 'Incorrect username or password.';
+          break;
       }
 
     }
