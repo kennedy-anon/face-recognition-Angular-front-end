@@ -5,10 +5,11 @@ import { FaceSearchLogsComponent } from './components/face-search-logs/face-sear
 import { LoginComponent } from './components/login/login.component';
 import { SearchFaceComponent } from './components/search-face/search-face.component';
 import { TrainModelComponent } from './components/train-model/train-model.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'admin-home', component: AdminHomeComponent},
+  {path: 'admin-home', component: AdminHomeComponent, canActivate:[AuthGuard]},
   {path: 'search-face', component: SearchFaceComponent},
   {path: 'train-model', component: TrainModelComponent},
   {path: 'logs', component: FaceSearchLogsComponent}
