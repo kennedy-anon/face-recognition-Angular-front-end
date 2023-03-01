@@ -133,7 +133,8 @@ export class AuthService {
       'Authorization': `Bearer ${token}`
     });
   
-    return this.http.get(`${this.apiUrl}auth/user/`, { headers });
+    return this.http.get(`${this.apiUrl}auth/user/`, { headers })
+    .pipe(map(res => res));
   }
 
 }
