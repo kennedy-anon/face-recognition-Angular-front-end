@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  apiUrl: string = 'http://localhost:8000/api/'
 
   constructor(private http: HttpClient) { }
 
@@ -19,90 +20,76 @@ export class AuthService {
     return "Login successful."
   }
 
-  // saving refreshed access token
-  private saveRefreshedToken(response: any){
-    localStorage.setItem('access', response.body.access);
-  }
-
   //log out
   logoutService(){
     localStorage.removeItem('access');
     localStorage.removeItem('refresh');
   }
 
+  // verify access token
+  verifyAccessToken(access_token: string): Observable<any> {
+    const headers = new HttpHeaders();
+    headers.append('Content-type', 'application/json');
+    const token = {
+      "token": access_token
+    }
+
+    return this.http.post(`${this.apiUrl}token/verify/`, token, {headers: headers, observe: 'response'});
+  }
+
+  // refreshing token
+  refreshToken(refresh_token: string): Observable<any> {
+    const headers = new HttpHeaders();
+    headers.append('Content-type', 'application/json');
+    const refresh = {
+      "refresh": refresh_token
+    }
+
+    return this.http.post(`${this.apiUrl}token/refresh/`, refresh, {headers: headers, observe: 'response'});
+  }
+
+
   //check if the user is logged in
-  isLoggedIn(): Promise<boolean>{
+  isLoggedIn(): Observable<boolean> {
     const access_token = localStorage.getItem('access');
     const refresh_token = localStorage.getItem('refresh');
-    let returnValue:boolean = false;
 
-    if (access_token){
-      // verify token
-      this.verifyAccessToken(access_token).subscribe({
-        next: (res => {
-          // valid token
-          console.log(res);
-          returnValue = true;
-          console.log(returnValue + " hello world");
-          //return true;
-        }),
-        error: (err =>{
-          // try refreshing token
-          if (refresh_token && err.error.code === 'token_not_valid'){
-            this.refreshToken(refresh_token).subscribe({
-              next: (res =>{
-                //save refreshed token
-                this.saveRefreshedToken(res);
-                returnValue = true;
-                //return true;
-              }),
-              error: (err =>{
-                // token can't be refreshed
-                returnValue = false;
-                //return false;
-              })
-            });
-          }else{
-            returnValue = false;
-            //return false;
-          }
+    if (access_token) {
+        // Check if the token is valid
+        return this.verifyAccessToken(access_token).pipe(
+            map((res: HttpResponse<any>) => {
+                // Token is valid, return true
+                return true;
+            }),
+            catchError((err: any) => {
+                // Token is not valid, try refreshing the token
+                if (refresh_token && err.error.code === 'token_not_valid') {
+                    return this.refreshToken(refresh_token).pipe(
+                        map((res: HttpResponse<any>) => {
+                            // Token was successfully refreshed, save the new token
+                            const new_access_token = res.body.access;
+                            localStorage.setItem('access', new_access_token);
 
-          //return false;
-        })
-      });
-
-      //return false;
-    }else{
-      returnValue = false;
-      //return false;
+                            // Token is valid, return true
+                            return true;
+                        }),
+                        catchError((err: any) => {
+                            // Token could not be refreshed, return false
+                            return of(false);
+                        })
+                    );
+                } else {
+                    // Token is not valid and cannot be refreshed, return false
+                    return of(false);
+                }
+            })
+        );
+    } else {
+        // No access token, return false
+        return of(false);
     }
-
-    return returnValue;
   }
 
-  //refresh token
-  refreshToken(refresh: string){
-    var headers = new HttpHeaders();
-    headers.append('Content-type', 'application/json');
-    const refresh_token = {
-      "refresh": refresh
-    }
-
-    return this.http.post('http://localhost:8000/api/token/refresh/', refresh_token, {headers: headers, observe: 'response'})
-    .pipe(map(res => res));
-  }
-
-  //verifying access token
-  verifyAccessToken(token: string) {
-    var headers = new HttpHeaders();
-    headers.append('Content-type', 'application/json');
-    const access_token = {
-      "token": token
-    }
-
-    return this.http.post('http://localhost:8000/api/token/verify/', access_token, {headers: headers, observe: 'response'})
-    .pipe(map(res => res));
-  }
 
   //handling login errors
   private handleError(error: HttpErrorResponse) {
@@ -132,7 +119,7 @@ export class AuthService {
   loginService(credentials: any){
     var headers = new HttpHeaders();
     headers.append('Content-type', 'application/json');
-    return this.http.post('http://localhost:8000/api/token/', credentials, {headers: headers, observe: 'response'})
+    return this.http.post(`${this.apiUrl}token/`, credentials, {headers: headers, observe: 'response'})
     .pipe(
       catchError(this.handleError),
       map(res => {
