@@ -2,26 +2,38 @@
     <img src="assets/IconResource/icon-park-solid_people-safepeople safe.svg" alt="My Icon">
         IFRS</h1>
 
-<h4><span class="material-symbols-outlined">
-    home
-    </span>&nbsp; Home</h4>
+<a [routerLink]="['/admin-home']" routerLinkActive="active-link">
+    <h4><span class="material-symbols-outlined">
+        home
+        </span>&nbsp; Home</h4>
+</a>
 
-<h4> <span class="material-symbols-outlined">
-    person_search
-    </span>&nbsp;Search Face</h4>
+<a [routerLink]="['/search-face']" routerLinkActive="active-link">
+    <h4> <span class="material-symbols-outlined">
+        person_search
+        </span>&nbsp;Search Face</h4>
+</a>
 
-<h4><span class="material-symbols-outlined">
-    add_a_photo
-    </span>&nbsp; Add Photos</h4>
+<a [routerLink]="['/train-model']" routerLinkActive="active-link">
+    <h4><span class="material-symbols-outlined">
+        add_a_photo
+        </span>&nbsp; Train Model</h4>
+</a>
 
-<h4><span class="material-symbols-outlined">
-    footprint
-    </span>&nbsp; Logs</h4>
+<a [routerLink]="['/logs']" routerLinkActive="active-link">
+    <h4><span class="material-symbols-outlined">
+        footprint
+        </span>&nbsp; Logs</h4>
+</a>
 
-<h4><span class="material-symbols-outlined">
-    person
-    </span>&nbsp; Profile</h4>
+<a routerLinkActive="active-link">
+    <h4><span class="material-symbols-outlined">
+        person
+        </span>&nbsp; Profile</h4>
+</a>
 
-<h4><span class="material-symbols-outlined">
-    logout
-    </span>&nbsp; Log Out</h4>
+<a  routerLinkActive="active-link">
+    <h4><span class="material-symbols-outlined">
+        logout
+        </span>&nbsp; Log Out</h4>
+</a>

@@ -12,3 +12,16 @@ h4{
 .material-symbols-outlined{
     vertical-align: middle;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: blue;
+}
+
+.active-link h4{
+    font-weight: 700;
+}
