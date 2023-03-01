@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent {
   resMessage !: string;
   resMessageColor : string = 'red';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login(){
     const credentials = {
@@ -25,6 +26,7 @@ export class LoginComponent {
       next: (res =>{
         this.resMessageColor = 'green';
         this.resMessage = res;
+        this.router.navigate(['/admin-home'])
       }),
       error: (err =>{
         this.resMessage = err;

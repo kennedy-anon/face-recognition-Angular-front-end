@@ -127,4 +127,13 @@ export class AuthService {
     }));
   }
 
+  // retrieve user details after logging
+  getUserFromToken(token: string) {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+  
+    return this.http.get(`${this.apiUrl}auth/user/`, { headers });
+  }
+
 }
