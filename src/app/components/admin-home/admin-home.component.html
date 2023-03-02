@@ -17,16 +17,16 @@
                 <mat-card>
                     <img mat-card-image src="assets/IconResource/faceMatch.jfif" alt="Search Face">
                     <mat-card-footer>
-                        <button class="btn btn-primary w-100"><span class="material-symbols-outlined">
+                        <button [routerLink]="['/search-face']" class="btn btn-primary w-100"><span class="material-symbols-outlined">
                             search
                             </span>&nbsp; Search Face</button>
                     </mat-card-footer>
                 </mat-card>
 
-                <mat-card class="mx-5">
+                <mat-card style="margin-left: 7rem;">
                     <img mat-card-image src="assets/IconResource/trainModel.jfif" alt="Train Model">
                     <mat-card-footer>
-                        <button class="btn btn-primary w-100"><span class="material-symbols-outlined">
+                        <button [routerLink]="['/train-model']" class="btn btn-primary w-100"><span class="material-symbols-outlined">
                             add_circle
                             </span>&nbsp; Train Model</button>
                     </mat-card-footer>

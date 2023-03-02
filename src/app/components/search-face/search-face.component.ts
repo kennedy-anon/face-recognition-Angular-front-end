@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SearchImageService } from 'src/app/services/search-image.service';
 
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
@@ -12,6 +13,9 @@ class ImageSnippet {
 export class SearchFaceComponent {
   selectedImage !: ImageSnippet;
   faceImage !: File;
+  faceDetail : any;
+
+  constructor(private searchFaceService: SearchImageService) {}
 
   // for processing face image
   onFileSelected(event: any) {
@@ -24,6 +28,19 @@ export class SearchFaceComponent {
     })
 
     reader.readAsDataURL(file);
+
+  }
+
+  // search face
+  searchFace(){
+    const face = {
+      'image': this.faceImage
+    }
+
+    this.searchFaceService.searchFace(face)
+    .subscribe(res => {
+      this.faceDetail = res;
+    })
 
   }
 

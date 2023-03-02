@@ -36,12 +36,17 @@
 }
 
 mat-card img{
-    width: 385px;
+    width: 350px;
     height: 186px;
 }
 
 mat-card button{
-    height: 5rem;
-    border-radius: 0px;
-    /*background: #FFFFFF;*/
+    height: 4rem;
+    border-color: #FFFFFF;
+    background: #FFFFFF;
+    color: #000000;
+}
+
+mat-card button span{
+    vertical-align: middle;
 }
