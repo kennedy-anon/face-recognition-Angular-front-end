@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, of, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable, of, throwError } from 'rxjs';
 export class AuthService {
   apiUrl: string = 'http://localhost:8000/api/'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: Router) { }
 
   //saving access and refresh tokens
   private saveTokens(response: any){
@@ -24,6 +25,7 @@ export class AuthService {
   logoutService(){
     localStorage.removeItem('access');
     localStorage.removeItem('refresh');
+    this.route.navigate(['/login'])
   }
 
   // verify access token
