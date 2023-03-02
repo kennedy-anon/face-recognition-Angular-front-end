@@ -52,3 +52,9 @@
     font-weight: 400;
     font-size: 25px;
 }
+
+#searchResults{
+    border-radius: 5px;
+    height: 9rem;
+    overflow-y: auto;
+}

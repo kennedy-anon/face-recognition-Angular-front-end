@@ -39,7 +39,7 @@ export class SearchFaceComponent {
 
     this.searchFaceService.searchFace(face)
     .subscribe(res => {
-      this.faceDetail = res;
+      this.faceDetail = res.body;
     })
 
   }

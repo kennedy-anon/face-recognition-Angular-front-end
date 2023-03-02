@@ -31,12 +31,11 @@
                 
                 <!-- Preview of face image results -->
                 <div>
-                    <mat-card *ngIf="selectedImage" style="margin-left: 6rem;">
-                        <!-- Change this to receive the face image -->
-                        <img id="faceImg" mat-card-image src="{{ selectedImage.src }}" alt="Face Image">
+                    <mat-card *ngIf="!(faceDetail === undefined)" style="margin-left: 6rem;">
+                        <img id="faceImg" mat-card-image [src]="'data:'+'jpg'+';base64,'+faceDetail.face_image" alt="Searched Image">
                     </mat-card>
 
-                    <mat-card *ngIf="!selectedImage" style="margin-left: 6rem;" class="no-image">
+                    <mat-card *ngIf="(faceDetail === undefined)" style="margin-left: 6rem;" class="no-image">
                         <p>Searched Image View</p>
                     </mat-card>
                     
@@ -48,9 +47,17 @@
             <div>
                 <h4 class="mt-5">Search Results</h4>
 
-                <h3>Face Name: Kennedy</h3>
+                <div class="container bg-white pt-3" id="searchResults">
+                    <div *ngIf="(faceDetail === undefined)">
+                        <p>Face Image Search Results.</p>
+                    </div>
+
+                    <div *ngIf="!(faceDetail === undefined)">
+                        <h3>Face Name: {{ faceDetail.face_name }}</h3>
+                    </div>
+                </div>
+
             </div>
 
         </div>
     </div>
-</div>
