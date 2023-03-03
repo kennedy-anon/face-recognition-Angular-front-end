@@ -17,7 +17,8 @@ export class SearchFaceComponent {
   faceDetail : any;
   loading : boolean = false; // for showing and hiding mat-spinner
   fileSelected: boolean = false; // checking if there is a file selected
-
+  displayedColumns: string[] = ['face_no', 'face_name', 'face_id']; // for displaying face detail
+ 
   constructor(private searchFaceService: SearchImageService, private _snackBar: MatSnackBar) {}
 
   // for processing face image

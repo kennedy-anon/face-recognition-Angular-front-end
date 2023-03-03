@@ -55,6 +55,6 @@
 
 #searchResults{
     border-radius: 5px;
-    height: 9rem;
+    height: 10rem;
     overflow-y: auto;
 }
