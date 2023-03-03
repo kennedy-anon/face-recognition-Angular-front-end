@@ -7,12 +7,14 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { SearchFaceComponent } from './components/search-face/search-face.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { TrainModelComponent } from './components/train-model/train-model.component';
 import { FaceSearchLogsComponent } from './components/face-search-logs/face-search-logs.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 
 @NgModule({
@@ -24,14 +26,16 @@ import { FaceSearchLogsComponent } from './components/face-search-logs/face-sear
     NavigationBarComponent,
     TopBarComponent,
     TrainModelComponent,
-    FaceSearchLogsComponent
+    FaceSearchLogsComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

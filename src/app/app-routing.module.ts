@@ -8,6 +8,7 @@ import { TrainModelComponent } from './components/train-model/train-model.compon
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
+  {path: '', component: AdminHomeComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'admin-home', component: AdminHomeComponent, canActivate:[AuthGuard]},
   {path: 'search-face', component: SearchFaceComponent, canActivate:[AuthGuard]},
