@@ -6,14 +6,20 @@
     /*
     --primary-color: #153d77;
     --secondary-color: #6c757d;
-    --delete-color: #dc3545;
     --background-color: #f2f2f2;
     --white-color: #fff;*/
     --success-color: #198754;
+    --delete-color: #dc3545;
 }
 
 .success-snackbar {
     color: white;
     --mdc-snackbar-container-color: var(--success-color);
     --mat-mdc-snack-bar-button-color: blue;
+}
+
+.error-snackbar {
+    color: white;
+    --mdc-snackbar-container-color: var(--delete-color);
+    --mat-mdc-snack-bar-button-color: black;
 }

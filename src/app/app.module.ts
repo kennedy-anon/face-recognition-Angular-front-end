@@ -10,7 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SearchFaceComponent } from './components/search-face/search-face.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
@@ -39,7 +41,9 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     FormsModule,
     MatDialogModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SearchImageService } from 'src/app/services/search-image.service';
 
 class ImageSnippet {
@@ -14,12 +15,14 @@ export class SearchFaceComponent {
   selectedImage !: ImageSnippet;
   faceImage !: File;
   faceDetail : any;
+  loading : boolean = false; // for showing and hiding mat-spinner
+  fileSelected: boolean = false; // checking if there is a file selected
 
-  constructor(private searchFaceService: SearchImageService) {}
+  constructor(private searchFaceService: SearchImageService, private _snackBar: MatSnackBar) {}
 
   // for processing face image
   onFileSelected(event: any) {
-    this.faceDetail = undefined;
+    this.faceDetail = undefined;  // clear page
     const file: File = event.target.files[0];
     const reader = new FileReader();
 
@@ -29,19 +32,33 @@ export class SearchFaceComponent {
     })
 
     reader.readAsDataURL(file);
-
+    this.fileSelected = true; // a file is available
   }
 
   // search face
   searchFace(){
-    const face = {
-      'image': this.faceImage
-    }
+    if (this.fileSelected){
+      // a file is available
+      const face = {
+        'image': this.faceImage
+      }
+  
+      this.loading =true; // show mat-spinner
+      this.searchFaceService.searchFace(face)
+      .subscribe(res => {
+        this.faceDetail = res.body;
+        this.loading = false; // hide mat-spinner
+      });
 
-    this.searchFaceService.searchFace(face)
-    .subscribe(res => {
-      this.faceDetail = res.body;
-    })
+    } else {
+      // no file selected
+      this._snackBar.open('Choose a face image first.', 'Ok', {
+        duration: 4000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center',
+        panelClass: ['error-snackbar', 'mat-simple-snackbar-action'],
+      });
+    }
 
   }
 

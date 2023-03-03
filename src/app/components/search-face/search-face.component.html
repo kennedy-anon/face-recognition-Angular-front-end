@@ -17,10 +17,12 @@
             <div class="d-flex">
                 <!-- Face image been uploaded -->
                 <div>
+                    <!-- Image have been selected -->
                     <mat-card *ngIf="selectedImage">
                         <img mat-card-image src="{{ selectedImage.src }}" alt="Face Image">
                     </mat-card>
 
+                    <!-- No selected image -->
                     <mat-card *ngIf="!selectedImage" class="no-image">
                         <p>Face Image Preview</p>
                     </mat-card>
@@ -31,10 +33,12 @@
                 
                 <!-- Preview of face image results -->
                 <div>
+                    <!-- Search image available -->
                     <mat-card *ngIf="!(faceDetail === undefined)" style="margin-left: 6rem;">
                         <img mat-card-image [src]="'data:'+'jpg'+';base64,'+faceDetail.face_image" alt="Searched Image">
                     </mat-card>
 
+                    <!-- no search image -->
                     <mat-card *ngIf="(faceDetail === undefined)" style="margin-left: 6rem;" class="no-image">
                         <p>Searched Image View</p>
                     </mat-card>
@@ -48,13 +52,21 @@
                 <h4 class="mt-5">Search Results</h4>
 
                 <div class="container bg-white pt-3" id="searchResults">
-                    <div *ngIf="(faceDetail === undefined)">
+                    <!-- Basic view -->
+                    <div *ngIf="(faceDetail === undefined) && !loading">
                         <p>Face Image Search Results.</p>
                     </div>
 
-                    <div *ngIf="!(faceDetail === undefined)">
+                    <div *ngIf="!(faceDetail === undefined) && !loading">
                         <h3>Face Name: {{ faceDetail.face_name }}</h3>
                     </div>
+
+                    <!-- when search is in progress -->
+                    <div *ngIf="loading">
+                        <mat-spinner class="mx-auto" diameter="90"></mat-spinner>
+                        <p class="text-center">Searching...</p>
+                    </div>
+
                 </div>
 
             </div>
