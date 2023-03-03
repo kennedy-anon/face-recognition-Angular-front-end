@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { SearchFaceComponent } from './components/search-face/search-face.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
@@ -35,7 +37,9 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     HttpClientModule,
     MatCardModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

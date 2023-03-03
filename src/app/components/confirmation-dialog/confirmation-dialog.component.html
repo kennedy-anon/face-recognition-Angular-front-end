@@ -1,6 +1,8 @@
-<h2 mat-dialog-title>Confirmation</h2>
-<mat-dialog-content>{{ data.message }}</mat-dialog-content>
+<mat-dialog-content style="font-weight: 400; font-size: 25px;">
+    {{ data.message }}
+</mat-dialog-content>
+
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button color="primary" (click)="onConfirmClick()">Confirm</button>
+  <button class="btn btn-default px-4" (click)="onNoClick()">Cancel</button>
+  <button class="btn btn-success px-4" (click)="onConfirmClick()" style="background-color: #000AFF;">Logout</button>
 </mat-dialog-actions>

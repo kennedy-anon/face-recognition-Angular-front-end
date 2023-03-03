@@ -1,0 +1,9 @@
+.btn-default{
+    border: 1px solid #000AFF;
+    color: #000AFF;
+    margin-left: 2rem;
+}
+
+.btn-success{
+    margin-left: 7rem;
+}

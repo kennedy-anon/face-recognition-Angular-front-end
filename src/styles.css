@@ -1,2 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+:root {
+    /*
+    --primary-color: #153d77;
+    --secondary-color: #6c757d;
+    --delete-color: #dc3545;
+    --background-color: #f2f2f2;
+    --white-color: #fff;*/
+    --success-color: #198754;
+}
+
+.success-snackbar {
+    color: white;
+    --mdc-snackbar-container-color: var(--success-color);
+    --mat-mdc-snack-bar-button-color: blue;
+}
