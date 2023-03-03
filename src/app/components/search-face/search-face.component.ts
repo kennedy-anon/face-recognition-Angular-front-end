@@ -62,7 +62,7 @@ export class SearchFaceComponent {
           this.loading = false; // hide mat-spinner
         }),
         error: (err => {
-          this.showMessage(err.error.Message);
+          this.showMessage(err.error.detail);
           this.loading = false; // hide mat-spinner
         })
       });
