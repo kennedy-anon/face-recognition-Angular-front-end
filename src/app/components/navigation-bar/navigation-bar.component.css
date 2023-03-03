@@ -25,3 +25,8 @@ a:hover, .btn:hover{
 .active-link h4{
     font-weight: 700;
 }
+
+.btn{
+    margin-top: 2rem;
+    margin-left: -0.5rem;
+}
