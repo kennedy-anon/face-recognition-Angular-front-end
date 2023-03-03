@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class FaceSearchLogsComponent {
   logsHistory : any;
+  displayedColumns: string[] = ['crime_officer_id', 'crime_officer_name', 'face_id', 'face_name', 'search_date']; // for displaying logs
 
   constructor(private faceSearchLogService: SearchFaceLogsService, private _snackBar: MatSnackBar) {}
 

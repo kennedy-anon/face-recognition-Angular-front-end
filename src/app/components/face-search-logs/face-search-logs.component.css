@@ -36,5 +36,7 @@
 }
 
 .bg-white{
+    border-radius: 10px;
+    height: 30rem;
     overflow-y: auto;
 }

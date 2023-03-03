@@ -14,12 +14,55 @@
         <div class="container" id="bodySection">
             <h4>Face Search Logs</h4>
 
-            <div *ngIf="!(logsHistory === undefined)" class="container bg-white">
-                <p>{{ logsHistory }}</p>
-            </div>
+            <div class="container bg-white">
+                <!-- Logs are available -->
+                <div *ngIf="!(logsHistory === undefined)">
+                    <table mat-table [dataSource]="logsHistory.results" class="mat-elevation-z8">
 
-            <div *ngIf="(logsHistory === undefined)" class="container bg-white">
-                <p>No logs</p>
+                        <!--- Note that these columns can be defined in any order.
+                              The actual rendered columns are set as a property on the row definition" -->
+                      
+                        <!-- Crime Officer ID. Column -->
+                        <ng-container matColumnDef="crime_officer_id">
+                          <th mat-header-cell *matHeaderCellDef> Crime Officer ID. </th>
+                          <td mat-cell *matCellDef="let element"> {{element.crime_officer_id}} </td>
+                        </ng-container>
+                      
+                        <!-- Crime Officer Name Column -->
+                        <ng-container matColumnDef="crime_officer_name">
+                          <th mat-header-cell *matHeaderCellDef> Crime Officer Name </th>
+                          <td mat-cell *matCellDef="let element"> {{element.crime_officer_name}} </td>
+                        </ng-container>
+                      
+                        <!-- Face Id Column -->
+                        <ng-container matColumnDef="face_id">
+                          <th mat-header-cell *matHeaderCellDef> Face Id </th>
+                          <td mat-cell *matCellDef="let element"> {{element.face_id}} </td>
+                        </ng-container>
+
+                        <!-- Face Name Column -->
+                        <ng-container matColumnDef="face_name">
+                            <th mat-header-cell *matHeaderCellDef> Face Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.face_name}} </td>
+                        </ng-container>
+
+                        <!-- Search Date Column -->
+                        <ng-container matColumnDef="search_date">
+                            <th mat-header-cell *matHeaderCellDef> Search Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.search_date}} </td>
+                        </ng-container>
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>/
+                    </table>  
+                    
+                </div>
+
+                <!-- No logs available -->
+                <div *ngIf="(logsHistory === undefined)">
+                    <p>No logs</p>
+                </div>
+
             </div>
 
         </div>
