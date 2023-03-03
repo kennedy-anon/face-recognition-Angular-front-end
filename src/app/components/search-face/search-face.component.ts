@@ -19,6 +19,7 @@ export class SearchFaceComponent {
 
   // for processing face image
   onFileSelected(event: any) {
+    this.faceDetail = undefined;
     const file: File = event.target.files[0];
     const reader = new FileReader();
 
