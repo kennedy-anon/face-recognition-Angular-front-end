@@ -36,6 +36,16 @@ export class SearchFaceComponent {
     this.fileSelected = true; // a file is available
   }
 
+  // show error message using snack bar
+  showMessage(message: string) {
+    this._snackBar.open(message, 'Ok', {
+      duration: 5000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      panelClass: ['error-snackbar', 'mat-simple-snackbar-action'],
+    });
+  }
+
   // search face
   searchFace(){
     if (this.fileSelected){
@@ -46,19 +56,20 @@ export class SearchFaceComponent {
   
       this.loading =true; // show mat-spinner
       this.searchFaceService.searchFace(face)
-      .subscribe(res => {
-        this.faceDetail = res.body;
-        this.loading = false; // hide mat-spinner
+      .subscribe({
+        next: (res => {
+          this.faceDetail = res.body;
+          this.loading = false; // hide mat-spinner
+        }),
+        error: (err => {
+          this.showMessage(err.error.Message);
+          this.loading = false; // hide mat-spinner
+        })
       });
 
     } else {
       // no file selected
-      this._snackBar.open('Choose a face image first.', 'Ok', {
-        duration: 4000,
-        verticalPosition: 'top',
-        horizontalPosition: 'center',
-        panelClass: ['error-snackbar', 'mat-simple-snackbar-action'],
-      });
+      this.showMessage('Choose a face image first.');
     }
 
   }
