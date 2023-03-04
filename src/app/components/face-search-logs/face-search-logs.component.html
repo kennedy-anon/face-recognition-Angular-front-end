@@ -22,6 +22,12 @@
 
                             <!--- Note that these columns can be defined in any order.
                                   The actual rendered columns are set as a property on the row definition" -->
+
+                            <!-- Log No. Column -->
+                            <ng-container matColumnDef="log_id">
+                                <th mat-header-cell *matHeaderCellDef> Log No. </th>
+                                <td mat-cell *matCellDef="let element"> {{element.log_id}}. </td>
+                            </ng-container>
                           
                             <!-- Crime Officer ID. Column -->
                             <ng-container matColumnDef="crime_officer_id">
@@ -50,7 +56,7 @@
                             <!-- Search Date Column -->
                             <ng-container matColumnDef="search_date">
                                 <th mat-header-cell *matHeaderCellDef> Search Date </th>
-                                <td mat-cell *matCellDef="let element"> {{element.search_date}} </td>
+                                <td mat-cell *matCellDef="let element"> {{ element.search_date | date: 'medium'}} </td>
                             </ng-container>
                           
                             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

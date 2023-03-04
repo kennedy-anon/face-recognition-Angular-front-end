@@ -13,7 +13,7 @@ export class FaceSearchLogsComponent {
   logsHistory : any;
   nextUrl: string | null = null;
   previousUrl: string | null = null;
-  displayedColumns: string[] = ['crime_officer_id', 'crime_officer_name', 'face_id', 'face_name', 'search_date']; // for displaying logs
+  displayedColumns: string[] = ['log_id', 'crime_officer_id', 'crime_officer_name', 'face_id', 'face_name', 'search_date']; // for displaying logs
 
   constructor(private faceSearchLogService: SearchFaceLogsService, private _snackBar: MatSnackBar) {}
 
@@ -31,7 +31,6 @@ export class FaceSearchLogsComponent {
       this.fetchLogs(this.previousUrl);
       this.currentPage -= 1;
     }
-
   }
 
   // assign variables
