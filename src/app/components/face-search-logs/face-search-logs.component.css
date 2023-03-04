@@ -35,8 +35,12 @@
     font-size: 25px;
 }
 
-.bg-white{
+#table-container{
     border-radius: 10px;
-    height: 30rem;
+    height: 28rem;
     overflow-y: auto;
+}
+
+#pageButtons{
+    float: right;
 }

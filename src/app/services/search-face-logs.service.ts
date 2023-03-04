@@ -12,12 +12,19 @@ export class SearchFaceLogsService {
   constructor(private http: HttpClient) { }
 
   // retrieving logs
-  retrieveLogs(token: string) {
+  retrieveLogs(token: string, url: string) {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-  
-    return this.http.get(`${this.apiUrl}logs/`, { headers })
-    .pipe(map(res => res));
+
+    if (url) {
+      // next or previous page
+      return this.http.get(url, { headers })
+      .pipe(map(res => res));
+    } else {
+      // fetch first page
+      return this.http.get(`${this.apiUrl}logs/`, { headers })
+      .pipe(map(res => res));
+    }
   }
 }
