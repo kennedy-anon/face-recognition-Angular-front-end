@@ -14,6 +14,8 @@ class ImageSnippet {
 export class TrainModelComponent {
   selectedImages : ImageSnippet[] = [];
   faceImages !: FileList;
+  trainingResponse : any;
+  loading : boolean = false; // for showing and hiding mat-spinner
 
   constructor(private trainModelService: TrainModelService, private _snackBar: MatSnackBar) {}
 
@@ -29,6 +31,7 @@ export class TrainModelComponent {
 
     // for processing selected training face images
     onFileSelected(event: any) {
+      this.trainingResponse = undefined;
       this.selectedImages = [];
       this.faceImages = event.target.files
       
@@ -51,12 +54,18 @@ export class TrainModelComponent {
     // train model
     trainModel() {
       if (this.faceImages) {
+        this.loading = true; // show mat-spinner
         this.trainModelService.trainModel(this.faceImages)
         .subscribe({
           next: (res => {
-            console.log(res);
+            this.selectedImages = [];
+            this.loading = false; // hide mat-spinner
+            this.trainingResponse = res.body;
+            console.log(this.trainingResponse);
           }),
           error: (err => {
+            this.showMessage(err.error.detail);
+            this.loading = false; // hide mat-spinner
             console.log(err);
           })
         });

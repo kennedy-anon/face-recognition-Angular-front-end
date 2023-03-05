@@ -24,12 +24,12 @@
 
             <div class="container bg-white py-3">
                 <!-- no selected images -->
-                <div *ngIf="(selectedImages.length == 0)">
+                <div *ngIf="((selectedImages.length == 0) && (trainingResponse == undefined))">
                 <p>Preview of selected images.</p>
                 </div>
 
                 <!-- images have been selected -->
-                <div *ngIf="(selectedImages.length != 0)" class="row">
+                <div *ngIf="((selectedImages.length != 0) && !loading)" class="row">
                     <ng-container *ngFor="let image of selectedImages">
                         <div class="col-md-2 mx-3">
                             <mat-card class="">
@@ -39,6 +39,17 @@
                             <h5>{{ image.file.name }}</h5>
                         </div>
                     </ng-container>  
+                </div>
+
+                <!-- Training response -->
+                <div *ngIf="(trainingResponse != undefined)">
+                    <p style="color: green; margin: auto;">{{ trainingResponse.Message }}</p>
+                </div>
+
+                <!-- When training process is in progress -->
+                <div *ngIf="loading">
+                    <mat-spinner class="mx-auto" diameter="90"></mat-spinner>
+                    <p class="text-center">Training...</p>
                 </div>
 
             </div>
