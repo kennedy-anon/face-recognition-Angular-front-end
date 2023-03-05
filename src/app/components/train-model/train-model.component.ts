@@ -61,12 +61,10 @@ export class TrainModelComponent {
             this.selectedImages = [];
             this.loading = false; // hide mat-spinner
             this.trainingResponse = res.body;
-            console.log(this.trainingResponse);
           }),
           error: (err => {
             this.showMessage(err.error.detail);
             this.loading = false; // hide mat-spinner
-            console.log(err);
           })
         });
       } else {
