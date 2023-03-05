@@ -43,13 +43,13 @@
 
                 <!-- Training response -->
                 <div *ngIf="(trainingResponse != undefined)">
-                    <p style="color: green; margin: auto;">{{ trainingResponse.Message }}</p>
+                    <p class="mt-3" style="color: green;">{{ trainingResponse.Message }}</p>
                 </div>
 
                 <!-- When training process is in progress -->
                 <div *ngIf="loading">
-                    <mat-spinner class="mx-auto" diameter="90"></mat-spinner>
-                    <p class="text-center">Training...</p>
+                    <mat-spinner class="mx-auto mt-4" diameter="90"></mat-spinner>
+                    <p class="text-center mt-1">Training...</p>
                 </div>
 
             </div>

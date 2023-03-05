@@ -36,7 +36,7 @@ export class TrainModelComponent {
       this.faceImages = event.target.files
       
       if (this.faceImages){
-        for (let i=0; i < 5; i++){
+        for (let i=0; ((i < 5) && (i < this.faceImages.length)); i++){ // preview images
           const reader = new FileReader();
 
           reader.onload = (event: any) => {
