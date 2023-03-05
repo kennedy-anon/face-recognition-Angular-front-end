@@ -32,6 +32,7 @@
 
 #header{
     padding: 1rem;
+    border-radius: 10px;
 }
 
 #bodySection mat-card{
@@ -46,4 +47,10 @@
 #bodySection h4{
     font-weight: 400;
     font-size: 25px;
+}
+
+.bg-white{
+    height: 13rem;
+    border-radius: 10px;
+    overflow-y: auto;
 }

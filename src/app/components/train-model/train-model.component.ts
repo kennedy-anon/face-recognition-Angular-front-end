@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TrainModelService } from 'src/app/services/train-model.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
@@ -10,9 +12,20 @@ class ImageSnippet {
   styleUrls: ['./train-model.component.css']
 })
 export class TrainModelComponent {
-  selectedImages !: ImageSnippet[];
+  selectedImages : ImageSnippet[] = [];
   faceImages !: FileList;
 
+  constructor(private trainModelService: TrainModelService, private _snackBar: MatSnackBar) {}
+
+  // show error message using snack bar
+  showMessage(message: string) {
+    this._snackBar.open(message, 'Ok', {
+      duration: 5000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      panelClass: ['error-snackbar', 'mat-simple-snackbar-action'],
+    });
+  }
 
     // for processing selected training face images
     onFileSelected(event: any) {
@@ -20,7 +33,7 @@ export class TrainModelComponent {
       this.faceImages = event.target.files
       
       if (this.faceImages){
-        for (let i=0; i < 3; i++){
+        for (let i=0; i < 5; i++){
           const reader = new FileReader();
 
           reader.onload = (event: any) => {
@@ -32,6 +45,26 @@ export class TrainModelComponent {
           reader.readAsDataURL(this.faceImages[i])
         }
       }
-  
+
     }
+
+    // train model
+    trainModel() {
+      if (this.faceImages) {
+        this.trainModelService.trainModel(this.faceImages)
+        .subscribe({
+          next: (res => {
+            console.log(res);
+          }),
+          error: (err => {
+            console.log(err);
+          })
+        });
+      } else {
+        // show error message
+        this.showMessage('Kindly select face images first.');
+      }
+      
+    }
+
 }

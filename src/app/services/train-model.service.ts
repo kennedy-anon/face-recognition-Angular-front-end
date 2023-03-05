@@ -5,13 +5,13 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class SearchImageService {
+export class TrainModelService {
   apiUrl: string = 'http://localhost:8000/api/'
 
   constructor(private http: HttpClient) { }
 
-  // search face
-  searchFace(face: any){
+  // service for training mode
+  trainModel(faceImages: any) {
     const token = localStorage.getItem('access');
 
     const headers = new HttpHeaders({
@@ -19,13 +19,11 @@ export class SearchImageService {
     });
 
     const formData = new FormData();
-    Object.entries(face).forEach(
-      ([key, value]: any[]) => {
-        formData.append(key, value);
-      }
-    )
+    for (let i = 0; i < faceImages.length; i++) {
+      formData.append('images', faceImages[i], faceImages[i].name);
+    }
 
-    return this.http.post(`${this.apiUrl}recognize/`, formData, {headers: headers, observe: 'response'})
+    return this.http.post(`${this.apiUrl}train/`, formData, {headers: headers, observe: 'response'})
     .pipe(map(res => res));
 
   }
