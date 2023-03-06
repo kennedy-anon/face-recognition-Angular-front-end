@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  apiUrl: string = 'http://localhost:8000/api/'
+  private apiUrl: string = 'http://localhost:8000/api/'
+  private user: any;
 
   constructor(private http: HttpClient, private route: Router) { }
 
@@ -136,7 +137,15 @@ export class AuthService {
     });
   
     return this.http.get(`${this.apiUrl}auth/user/`, { headers })
-    .pipe(map(res => res));
+    .pipe(map(res => {
+      this.user = res;
+      return res;
+    }));
+  }
+
+  // get the stored user object
+  getUser() {
+    return this.user;
   }
 
 }
