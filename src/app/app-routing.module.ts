@@ -15,8 +15,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'access-denied', component: AccessDeniedComponent},
   {path: 'admin-home', component: AdminHomeComponent, canActivate:[AuthGuard]},
-  {path: 'search-face', component: SearchFaceComponent, canActivate:[AuthGuard]},
-  {path: 'train-model', component: TrainModelComponent, canActivate:[AuthGuard]},
+  {path: 'search-face', component: SearchFaceComponent, canActivate:[AuthGuard, AccessLevelGuard], data: {accessLevels: ['CrimeOfficer']}},
+  {path: 'train-model', component: TrainModelComponent, canActivate:[AuthGuard, AccessLevelGuard], data: {accessLevels: ['SystemAdmin']}},
   {path: 'logs', component: FaceSearchLogsComponent, canActivate:[AuthGuard, AccessLevelGuard], data: {accessLevels: ['SeniorOfficer']}},
   {path: 'account', component: ProfileComponent, canActivate:[AuthGuard]}
 ];

@@ -13,7 +13,7 @@ export class AccessLevelGuard implements CanActivate {
 
   // check if the user has access
   compareAccessLevels(requiredAccessLevel: any, accessLevels: any): boolean {
-    return accessLevels.includes(requiredAccessLevel[0]);
+    return accessLevels.groups.includes(requiredAccessLevel[0]);
   }
   
   canActivate(
