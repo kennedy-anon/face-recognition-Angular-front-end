@@ -19,6 +19,7 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { TrainModelComponent } from './components/train-model/train-model.component';
 import { FaceSearchLogsComponent } from './components/face-search-logs/face-search-logs.component';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     TopBarComponent,
     TrainModelComponent,
     FaceSearchLogsComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
