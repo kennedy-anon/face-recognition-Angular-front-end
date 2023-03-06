@@ -26,6 +26,7 @@ export class AuthService {
   logoutService(){
     localStorage.removeItem('access');
     localStorage.removeItem('refresh');
+    this.user = undefined;
     this.route.navigate(['/login'])
   }
 
