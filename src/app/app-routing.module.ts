@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SearchFaceComponent } from './components/search-face/search-face.component';
 import { TrainModelComponent } from './components/train-model/train-model.component';
+import { AccessLevelGuard } from './guards/access-level.guard';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
   {path: 'admin-home', component: AdminHomeComponent, canActivate:[AuthGuard]},
   {path: 'search-face', component: SearchFaceComponent, canActivate:[AuthGuard]},
   {path: 'train-model', component: TrainModelComponent, canActivate:[AuthGuard]},
-  {path: 'logs', component: FaceSearchLogsComponent, canActivate:[AuthGuard]},
+  {path: 'logs', component: FaceSearchLogsComponent, canActivate:[AuthGuard, AccessLevelGuard], data: {accessLevels: ['SeniorOfficer']}},
   {path: 'account', component: ProfileComponent, canActivate:[AuthGuard]}
 ];
 

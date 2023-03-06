@@ -52,7 +52,7 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}token/refresh/`, refresh, {headers: headers, observe: 'response'});
   }
 
-
+  
   //check if the user is logged in
   isLoggedIn(): Observable<boolean> {
     const access_token = localStorage.getItem('access');
@@ -157,6 +157,26 @@ export class AuthService {
 
     return this.http.put(`${this.apiUrl}auth/user/change-password/`, passwords, {headers: headers, observe: 'response'})
     .pipe(map(res => res));
+  }
+
+  // retrieving access groups for the user
+  getAccessLevels() {
+    const token = localStorage.getItem('access');
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.get(`${this.apiUrl}auth/groups/`, { headers });
+  }
+
+  // return the access levels of the user
+  retrieveAccessLevels(): Observable<any>{
+    return this.getAccessLevels().pipe(
+      map(res => {
+        return res;
+      })
+    )
   }
 
 }
