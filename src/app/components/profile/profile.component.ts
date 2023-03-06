@@ -7,10 +7,18 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+  old_password !: string;
+  new_password !: string;
+  confirm_new_password !: string;
   user : any[] = [];
   displayedColumns: string[] = ['id', 'username', 'first_name', 'last_name', 'email']; // for displaying user detail
 
   constructor(private authService: AuthService) {}
+
+  // change password
+  changePassword() {
+
+  }
 
   ngOnInit(): void {
     // getting user details

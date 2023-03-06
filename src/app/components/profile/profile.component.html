@@ -56,6 +56,40 @@
 
             </div>
 
+            <h4 class="mt-4">Password change</h4>
+            <p class="my-3"><i class="fa fa-info-circle" aria-hidden="true"></i>   Please enter your old password, for security’s sake, 
+              and then enter your new password twice so we can verify you typed it in correctly.</p>
+
+            <div>
+              <form ngNativeValidate (submit)="changePassword()">
+                <div class="form-group my-3" style="width: 43%;">
+                    <label>Old password:</label>
+                    <input type="password" class="form-control" [(ngModel)]="old_password" name="old_password" required="true">
+                </div>
+                
+                <div class="d-flex">
+                  <div class="form-group my-3">
+                    <label>New password:</label>
+                    <input type="password" class="form-control" [(ngModel)]="new_password" name="new_password" required="true">
+                    <p class="mt-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Your password can't be too similar to your other personal information. <br>
+                      <i class="fa fa-info-circle" aria-hidden="true"></i> Your password must contain at least 8 characters. <br>
+                      <i class="fa fa-info-circle" aria-hidden="true"></i> Your password can't be a commonly used password. <br>
+                      <i class="fa fa-info-circle" aria-hidden="true"></i> Your password can't be entirely numeric.</p>
+                  </div>
+
+                  <div class="form-group my-3" style="margin-left: 5rem; width: 40%;">
+                    <label>New password confirmation:</label>
+                    <input type="password" class="form-control" [(ngModel)]="confirm_new_password" name="confirm_new_password" required="true">
+                  </div>
+                </div>
+
+                <div style="float: right;">
+                  <input type="submit" class="btn btn-primary px-3" value="Change My Password" style="background-color: #000AFF; margin-top: -3rem; margin-right: 6.5rem;">
+                </div>
+
+              </form>
+            </div>
+
         </div>
     </div>
 </div>
