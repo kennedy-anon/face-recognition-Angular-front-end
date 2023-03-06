@@ -149,4 +149,14 @@ export class AuthService {
     return this.user;
   }
 
+  // change password service
+  changePassword(passwords: any, token: string) {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.put(`${this.apiUrl}auth/user/change-password/`, passwords, {headers: headers, observe: 'response'})
+    .pipe(map(res => res));
+  }
+
 }
