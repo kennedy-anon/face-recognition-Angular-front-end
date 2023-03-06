@@ -50,3 +50,9 @@ mat-card button{
 mat-card button span{
     vertical-align: middle;
 }
+
+.bg-white { 
+    border-radius: 10px;
+    overflow-y: auto;
+    height: 11rem;
+}
