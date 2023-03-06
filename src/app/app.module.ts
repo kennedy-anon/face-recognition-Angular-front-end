@@ -20,6 +20,7 @@ import { TrainModelComponent } from './components/train-model/train-model.compon
 import { FaceSearchLogsComponent } from './components/face-search-logs/face-search-logs.component';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     TrainModelComponent,
     FaceSearchLogsComponent,
     ConfirmationDialogComponent,
-    ProfileComponent
+    ProfileComponent,
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,

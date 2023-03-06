@@ -1,0 +1,44 @@
+#bg{
+    background: #CECECE;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#navigationPanel{
+    width: 20%;
+    padding-top: 35px;
+    padding-left: 70px;
+}
+
+.border-end, .border-bottom {
+    border-color: black !important;
+}
+
+#topBar{
+    padding-top: 25px;
+    text-align: right;
+}
+
+#mainContent{
+    width: 80%;
+}
+
+#bodySection{
+    padding-top: 20px;
+}
+
+#bodySection h4{
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.bg-white {
+    border-radius: 10px;
+}
+
+.bg-white p{
+    color: red;
+}

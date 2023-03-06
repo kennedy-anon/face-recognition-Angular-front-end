@@ -27,6 +27,7 @@ export class AccessLevelGuard implements CanActivate {
             return true;
           } else {
             // has no access to the page
+            this.router.navigate(['/access-denied']);
             return false;
           }
         })

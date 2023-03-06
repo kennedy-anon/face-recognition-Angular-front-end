@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { FaceSearchLogsComponent } from './components/face-search-logs/face-search-logs.component';
 import { LoginComponent } from './components/login/login.component';
@@ -12,6 +13,7 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {path: '', component: AdminHomeComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},
+  {path: 'access-denied', component: AccessDeniedComponent},
   {path: 'admin-home', component: AdminHomeComponent, canActivate:[AuthGuard]},
   {path: 'search-face', component: SearchFaceComponent, canActivate:[AuthGuard]},
   {path: 'train-model', component: TrainModelComponent, canActivate:[AuthGuard]},
