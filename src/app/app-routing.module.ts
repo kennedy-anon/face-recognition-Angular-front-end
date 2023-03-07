@@ -11,10 +11,10 @@ import { AccessLevelGuard } from './guards/access-level.guard';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {path: '', component: AdminHomeComponent, canActivate:[AuthGuard]},
+  {path: '', redirectTo: 'home', pathMatch:'full'},
   {path: 'login', component: LoginComponent},
   {path: 'access-denied', component: AccessDeniedComponent},
-  {path: 'admin-home', component: AdminHomeComponent, canActivate:[AuthGuard]},
+  {path: 'home', component: AdminHomeComponent, canActivate:[AuthGuard]},
   {path: 'search-face', component: SearchFaceComponent, canActivate:[AuthGuard, AccessLevelGuard], data: {accessLevels: ['CrimeOfficer']}},
   {path: 'train-model', component: TrainModelComponent, canActivate:[AuthGuard, AccessLevelGuard], data: {accessLevels: ['SystemAdmin']}},
   {path: 'logs', component: FaceSearchLogsComponent, canActivate:[AuthGuard, AccessLevelGuard], data: {accessLevels: ['SeniorOfficer']}},

@@ -26,7 +26,7 @@ export class LoginComponent {
       next: (res =>{
         this.resMessageColor = 'green';
         this.resMessage = res;
-        this.router.navigate(['/admin-home'])
+        this.router.navigate(['/home'])
       }),
       error: (err =>{
         this.resMessage = err;

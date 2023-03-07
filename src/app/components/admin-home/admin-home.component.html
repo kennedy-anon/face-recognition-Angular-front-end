@@ -14,7 +14,7 @@
             <h4>How can I help Today!</h4>
 
             <div class="d-flex">
-                <mat-card>
+                <mat-card *ngIf="isCrimeOfficer">
                     <img mat-card-image src="assets/IconResource/faceMatch.jfif" alt="Search Face">
                     <mat-card-footer>
                         <button [routerLink]="['/search-face']" class="btn btn-primary w-100"><span class="material-symbols-outlined">
@@ -23,7 +23,7 @@
                     </mat-card-footer>
                 </mat-card>
 
-                <mat-card style="margin-left: 7rem;">
+                <mat-card *ngIf="isSysAdmin" style="margin-left: 7rem;">
                     <img mat-card-image src="assets/IconResource/trainModel.jfif" alt="Train Model">
                     <mat-card-footer>
                         <button [routerLink]="['/train-model']" class="btn btn-primary w-100"><span class="material-symbols-outlined">
