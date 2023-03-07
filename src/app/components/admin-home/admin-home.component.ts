@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { SearchFaceLogsService } from 'src/app/services/search-face-logs.service';
 
 @Component({
@@ -7,10 +8,14 @@ import { SearchFaceLogsService } from 'src/app/services/search-face-logs.service
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent {
+  isSeniorOfficer !: boolean;
+  isCrimeOfficer !: boolean;
+  isSysAdmin !: boolean;
+
   displayedColumns: string[] = ['log_id', 'crime_officer_id', 'crime_officer_name', 'face_id', 'face_name', 'search_date']; // for displaying logs
   logsHistory : any;
 
-  constructor(private faceSearchLogService: SearchFaceLogsService) {}
+  constructor(private faceSearchLogService: SearchFaceLogsService, private authService: AuthService) {}
 
   //fetchLogs
   fetchLogs() {
@@ -24,7 +29,22 @@ export class AdminHomeComponent {
     }
   }
 
+  // initialize access variables
+  initializeAccessVariables(accessLevels: string[]){
+    this.isCrimeOfficer = accessLevels.includes('CrimeOfficer');
+    this.isSeniorOfficer = accessLevels.includes('SeniorOfficer');
+    this.isSysAdmin = accessLevels.includes('SystemAdmin');
+  }
+
   ngOnInit(): void {
-    this.fetchLogs();
+    this.authService.retrieveAccessLevels()
+    .subscribe((res: any) => {
+      const accessLevels = res.groups;
+      this.initializeAccessVariables(accessLevels);
+
+      if (this.isSeniorOfficer) {
+        this.fetchLogs(); // fetch logs only if its a SeniorOfficer
+      }
+    })
   }
 }

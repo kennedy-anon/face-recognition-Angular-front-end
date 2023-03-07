@@ -10,6 +10,9 @@ import { MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent {
+  isSeniorOfficer !: boolean;
+  isCrimeOfficer !: boolean;
+  isSysAdmin !: boolean;
 
   constructor(private authService: AuthService, private dialog: MatDialog, private _snackBar: MatSnackBar) {}
 
@@ -39,11 +42,25 @@ export class NavigationBarComponent {
     });
   }
 
-
   //log out
   logout(){
     this.authService.logoutService();
     this.showMessage('Successfully logged out.');
+  }
+
+  // initialize access variables
+  initializeAccessVariables(accessLevels: string[]){
+    this.isCrimeOfficer = accessLevels.includes('CrimeOfficer');
+    this.isSeniorOfficer = accessLevels.includes('SeniorOfficer');
+    this.isSysAdmin = accessLevels.includes('SystemAdmin');
+  }
+
+  ngOnInit(): void {
+    this.authService.retrieveAccessLevels()
+    .subscribe((res: any) => {
+      const accessLevels = res.groups;
+      this.initializeAccessVariables(accessLevels);
+    })
   }
 
 }

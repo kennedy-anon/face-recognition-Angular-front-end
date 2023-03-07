@@ -34,7 +34,7 @@
 
             </div>
 
-            <h4 class="mt-5">View Face Search Logs</h4>
+            <h4 *ngIf="isSeniorOfficer" class="mt-5">View Face Search Logs</h4>
 
             <div *ngIf="(logsHistory != undefined)" class="container bg-white py-3">
                 <table mat-table [dataSource]="logsHistory.results" class="mat-elevation-z8">
