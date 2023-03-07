@@ -83,6 +83,12 @@
                 </table>
             </div>
 
+            <!-- When the user doesn't have any access priviledge -->
+            <div *ngIf="(!isCrimeOfficer && !isSeniorOfficer && !isSysAdmin)" class="bg-white pt-5">
+                <p class="my-auto" style="margin-left: 3rem; color: red;">Its seems you do not have any access priviledge. 
+                    Please contact System Administrator if you believe this is an error.</p>
+            </div>
+
         </div>
     </div>
     
