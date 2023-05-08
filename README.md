@@ -1,6 +1,6 @@
 # FaceRecognition
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6. The repo contains the code for Integrated Facial Recognition System for Forensic Investigations. The system was built to asssist crime officers quickly identify suspects captured by CCTV footage thus speeding investigation process and allow officers to focus on other aspects of investigation.
 
 ## Development server
 
